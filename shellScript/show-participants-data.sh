@@ -2,8 +2,6 @@
 
 while read YEAR MONTH DAY HOUR MINUTE SECOND NANOSECOND
 do
-#  echo "[year]${YEAR} [month]${MONTH} [day]${DAY} [hour]${HOUR} [minute]${MINUTE} [second]${SECOND} [nanosecond]${NANOSECOND}"
-
   printf '{
     "year": "%s",
     "month": "%s",
@@ -22,5 +20,5 @@ do
 }
 '
 
-done <<< $(date +"%Y %m %d %H %m %S %N")
+done <<< $(date +"%Y %m %d %H %m %S")
 
