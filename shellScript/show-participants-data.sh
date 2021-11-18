@@ -3,12 +3,12 @@
 while read YEAR MONTH DAY HOUR MINUTE SECOND NANOSECOND
 do
   printf '{
-    "year": "%s",
-    "month": "%s",
-    "day": "%s",
-    "hour": "%s",
-    "minute": "%s",
-    "second": "%s",
+    "year": %s,
+    "month": %s,
+    "day": %s,
+    "hour": %s,
+    "minute": %s,
+    "second": %s,
     "macaddresses": [
 ' ${YEAR} ${MONTH} ${DAY} ${HOUR} ${MINUTE} ${SECOND} ${NANOSECOND}
 
@@ -20,5 +20,5 @@ do
 }
 '
 
-done <<< $(date +"%Y %m %d %H %m %S")
+done <<< $(date +"%Y %m %d %H %m %S") | sed -z "s/,\n    ]/\n    ]/"
 
