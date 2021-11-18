@@ -10,15 +10,15 @@ Router side Repository of https://github.com/higuruchi/participant-app
 例:
 ```json
 {
-    "year": "2021",
-    "month": "11",
-    "day": "16",
-    "hour": "14",
-    "minute": "11",
-    "second": "54",
+    "year": 2021,
+    "month": 11,
+    "day": 16,
+    "hour": 14,
+    "minute": 11,
+    "second": 54,
     "macaddresses": [
         "c4:3c:ea:85:f0:08",
-        "2c:d0:5a:27:82:3e",
+        "2c:d0:5a:27:82:3e"
     ]
 }
 ```
