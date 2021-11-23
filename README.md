@@ -1,24 +1,40 @@
 # participant-app-router
-Router side Repository of https://github.com/higuruchi/participant-app
 
-# 仕様
+Router side Repository.
 
-## show-participants-data.sh
+[Server side](https://github.com/higuruchi/participant-app)
 
-現在時刻と ARP テーブルの MAC address を羅列した JSON データを出力する。
+[Client side](https://github.com/yassi-github/participant-app-client)
 
-例:
-```json
-{
-    "year": 2021,
-    "month": 11,
-    "day": 16,
-    "hour": 14,
-    "minute": 11,
-    "second": 54,
-    "macaddresses": [
-        "c4:3c:ea:85:f0:08",
-        "2c:d0:5a:27:82:3e"
-    ]
-}
+
+## Specifications
+
+This will POST Mac addresses and date to Participant-app server by using curl.
+
+The IP and port of the server are defined by the arguments of `setup.sh`.
+
+## Usage
+
+```bash
+git clone https://github.com/yassi-github/participant-app-router.git
+
+cd participant-app-router
+
+sudo ./setup.sh <ServerIP>:<ServerPORT>
+# e.g.
+# sudo ./setup.sh 192.0.2.10:8080
+```
+
+This will run `send-participant-mac@<IP>:<PORT>.timer`.  
+
+Check how it works:
+
+```
+systemctl status send-participant-mac@<IP>:<PORT>.service
+```
+
+e.g. 
+
+```
+systemctl status send-participant-mac@192.0.2.10:8080.service
 ```
