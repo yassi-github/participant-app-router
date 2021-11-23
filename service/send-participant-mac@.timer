@@ -1,0 +1,14 @@
+[Unit]
+Description=Run participant-app every 5 seconds
+
+[Timer]
+AccuracySec=1s
+# Time from INITIAL startup to execution
+# In fact, it takes the setting time **plus 1** second.
+OnActiveSec=4s
+# Time from startup to execution
+OnUnitActiveSec=4s
+
+[Install]
+WantedBy=timers.target
+
