@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe
+set -e
 
 # check privileged
 if [[ ! ( $USER = "root" || ${SUDO_USER} ) ]]; then
