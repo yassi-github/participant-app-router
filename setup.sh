@@ -40,5 +40,5 @@ systemctl daemon-reload
 systemctl restart ${timerfilename/@/@${destination}}
 
 echo 'Complete!'
-echo "To Stop This Service, run:\n\nsystemctl stop ${timerfilename/@/@${destination}}"
+echo -e "To Stop This Service, run:\n\nsystemctl stop ${timerfilename/@/@${destination}}\n"
 
