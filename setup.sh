@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe
+set -e
 
 # check privileged
 if [[ ! ( $USER = "root" || ${SUDO_USER} ) ]]; then
@@ -9,7 +9,7 @@ if [[ ! ( $USER = "root" || ${SUDO_USER} ) ]]; then
 fi
 
 # server address
-#destination='192.168.12.53:8000'
+# e.g. '192.0.2.10:8080'
 destination=$1
 destport=$(echo ${destination} | cut -d':' -f 2)
 
@@ -40,5 +40,5 @@ systemctl daemon-reload
 systemctl restart ${timerfilename/@/@${destination}}
 
 echo 'Complete!'
-echo "To Stop This Service, run:\n\nsystemctl stop ${timerfilename/@/@${destination}}"
+echo -e "To Stop This Service, run:\n\nsystemctl stop ${timerfilename/@/@${destination}}\n"
 
