@@ -18,15 +18,20 @@ The IP and port of the server are defined by the arguments of `setup.sh`.
 
 - `unzip`
     - For Downloading This Repository.
-
+- `curl`
 
 ## Usage
 
 ```bash
-git clone https://github.com/yassi-github/participant-app-router.git
+# Download Repository
+curl https://codeload.github.com/yassi-github/participant-app-router/zip/refs/heads/master -o participant-app-router-master.zip
 
-cd participant-app-router
+unzip participant-app-router-master.zip
 
+cd participant-app-router-master
+
+# run
+# Specify Servere-side IP:Port
 sudo ./setup.sh <ServerIP>:<ServerPORT>
 # e.g.
 # sudo ./setup.sh 192.0.2.10:8080
