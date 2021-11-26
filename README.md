@@ -13,6 +13,13 @@ This will POST Mac addresses and date to Participant-app server by using curl.
 
 The IP and port of the server are defined by the arguments of `setup.sh`.
 
+
+## Requirements
+
+- `unzip`
+    - For Downloading This Repository.
+
+
 ## Usage
 
 ```bash
