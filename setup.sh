@@ -20,25 +20,23 @@ if [[ $# != 1 || ! ( ${destination} =~ ^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?
     exit 1
 fi
 
-servicefile_dir='service'
-unitfilename='send-participant-mac@.service'
-timerfilename='send-participant-mac@.timer'
 scriptfile='shellScript/participant-app.sh'
-local_systemd_dir='/usr/local/lib/systemd/system'
+cron_file='/etc/crontabs/root'
 
 # Template Exexutable Path to Service Unit File
-sed -i "s%<ProjectHome>%${PWD}%" ${servicefile_dir}/${unitfilename} ${scriptfile}
+sed -i "s%<ProjectHome>%${PWD}%" ${scriptfile}
 
-# Copy Unit, Timer file to local systemd dir
-mkdir -p ${local_systemd_dir}
-cp ${servicefile_dir}/${unitfilename} ${local_systemd_dir}
-cp ${servicefile_dir}/${timerfilename} ${local_systemd_dir}
+# Create cron dir
+mkdir /etc/crontabs
 
-# start service, timer
-systemctl daemon-reload
-#systemctl start ${unitfilename/@/@${destination}}
-systemctl restart ${timerfilename/@/@${destination}}
+# Add cronscript
+# permission will be 0600
+umask 0066
+# add execute script per 1 minutes
+echo "* * * * * ${PWD}/${scriptfile} ${destination}" >> ${cron_file}
+
+# Restart cron
+/etc/init.d/cron restart
 
 echo 'Complete!'
-echo -e "To Stop This Service, run:\n\nsystemctl stop ${timerfilename/@/@${destination}}\n"
-
+echo -e "To Stop This Service, run:\n\n/etc/init.d/cron stop\nor\nDelete cronjob.\n"
