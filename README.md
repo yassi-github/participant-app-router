@@ -25,16 +25,10 @@ sudo ./setup.sh <ServerIP>:<ServerPORT>
 # sudo ./setup.sh 192.0.2.10:8080
 ```
 
-This will run `send-participant-mac@<IP>:<PORT>.timer`.  
+This will restart cron.  
 
 Check how it works:
 
 ```
-systemctl status send-participant-mac@<IP>:<PORT>.service
-```
-
-e.g. 
-
-```
-systemctl status send-participant-mac@192.0.2.10:8080.service
+logread -e cron
 ```
