@@ -20,5 +20,5 @@ do
 }
 '
 
-done <<< $(date +"%Y %m %d %H %m %S") | sed -z "s/,\n    ]/\n    ]/"
+done <<< $(date +"%Y %m %d %H %m %S") | sed -e ':a' -e'N' -e '$!ba' -e "s/,\n    ]/\n    ]/"
 
