@@ -9,7 +9,7 @@ SERVERADDR=$1
 while [[ "$(date +%S)" != "00" ]]; do
 
 # POST
-curl -X POST -d "$(<ProjectHome>/shellScript/show-participants-data.sh)" ${SERVERADDR}/participants
+wget --post-data="$(<ProjectHome>/shellScript/show-participants-data.sh)" "${SERVERADDR}/participants"
 
 # wait a few seconds
 sleep 5s
