@@ -9,7 +9,7 @@ Router side Repository.
 
 ## Specifications
 
-This will POST Mac addresses and date to Participant-app server by using curl.
+This will POST Mac addresses and date to Participant-app server by using wget.
 
 The IP and port of the server are defined by the arguments of `setup.sh`.
 
@@ -18,13 +18,13 @@ The IP and port of the server are defined by the arguments of `setup.sh`.
 
 - `unzip`
     - For Downloading This Repository.
-- `curl`
+- `wget`
 
 ## Usage
 
 ```bash
 # Download Repository
-curl https://codeload.github.com/yassi-github/participant-app-router/zip/refs/heads/master -o participant-app-router-master.zip
+wget "https://codeload.github.com/yassi-github/participant-app-router/zip/refs/heads/master" -O participant-app-router-master.zip
 
 unzip participant-app-router-master.zip
 
